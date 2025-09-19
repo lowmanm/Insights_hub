@@ -1,0 +1,7 @@
+Django>=3.2,<5.0
+djangorestframework>=3.12
+google-cloud-bigquery>=3.10
+python-dotenv>=1.0.0
+
+# Vertex AI client libraries for calling generative and ML models
+google-cloud-aiplatform>=1.24.0

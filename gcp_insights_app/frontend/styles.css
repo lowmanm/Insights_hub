@@ -1,0 +1,32 @@
+/* Custom styles for the Fulfilment Insights Hub frontend */
+
+body {
+  background-color: #f8f9fa;
+}
+
+h1, h2 {
+  color: #343a40;
+}
+
+.card {
+  border-radius: 0.5rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.card-text {
+  font-size: 1.25rem;
+  color: #0d6efd;
+}
+
+/* Chat area styling */
+.border {
+  background-color: #ffffff;
+}
+
+strong {
+  color: #0d6efd;
+}

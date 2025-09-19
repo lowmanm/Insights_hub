@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="insightsApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fulfilment Insights Hub</title>
+  <!-- Bootstrap CSS via CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-5H1Ow96iFsQqFZpRwMoNEdy3MD5ClOeG7lVPMKOlWYcbZ/LiU1XDfp0D5g2wXrln"
+    crossorigin="anonymous"
+  >
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- AngularJS via CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <!-- Application script -->
+  <script src="app.js"></script>
+</head>
+<body ng-controller="MainController as ctrl" class="container py-4">
+  <h1 class="mb-4">Fulfilment Insights Hub</h1>
+
+  <!-- Insights summary cards -->
+  <div class="row mb-4" ng-if="ctrl.summary">
+    <div class="col-md-4" ng-repeat="(key, value) in ctrl.summary">
+      <div class="card shadow-sm mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ ctrl.formatKey(key) }}</h5>
+          <p class="card-text fw-bold">{{ value }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Insights bot section -->
+  <h2>Insights Bot</h2>
+  <form ng-submit="ctrl.sendQuery()" class="row g-2 mb-3">
+    <div class="col">
+      <input type="text" ng-model="ctrl.query" class="form-control" placeholder="Ask a question..." required>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+  </form>
+
+  <!-- Conversation history -->
+  <div ng-if="ctrl.responses.length > 0" class="border rounded p-3">
+    <div ng-repeat="item in ctrl.responses track by $index" class="mb-3">
+      <div><strong>You:</strong> {{ item.query }}</div>
+      <div><strong>Bot:</strong> {{ item.answer }}</div>
+    </div>
+  </div>
+
+</body>
+</html>
